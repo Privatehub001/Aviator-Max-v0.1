@@ -116,7 +116,7 @@
 
     @media screen and (max-width: 1000px) {
         .aviator {
-            font-size: 1rem;
+            font-size: 1.4rem;
         }
 
         .coins {
@@ -149,11 +149,25 @@
         }
 
         .dbutton {
-            margin-left: 5px;
-            width: 14vw;
+            margin-left: 4px;
+            width: auto;
             font-weight: 700;
             padding: 5px 6px;
         }
+        #playGameButton {
+            background-color: rgb(9, 85, 199); /* Blue background */
+            color: white; /* White text */
+            font-weight: bold; /* Bold text */
+            padding: 5px 6px; /* Add padding */
+            border: none; /* Remove default button border */
+            width: auto;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer on hover */
+          }
+          
+          #playGameButton:hover {
+            background-color: rgb(74, 169, 207); /* Optional hover effect */
+          }
     }
 }
 
