@@ -1,0 +1,43 @@
+@import "../assets/variable";
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0 3px; 
+    width: 100%; 
+    color: white;
+
+    th, td {
+        padding: 0.75vw 0.65vw !important;
+        font-size: 0.75vw;
+    }
+
+    .table-head {
+        color: wheat !important;
+        text-transform: uppercase;
+        th {
+            color: white;
+        }
+    }
+
+    tbody {
+        tr { 
+           
+            td {
+                &:last-child {
+                    border-top-right-radius: 2vw;
+                    border-bottom-right-radius: 2vw;
+                }
+                &:first-child{
+                    border-top-left-radius: 2vw;
+                    border-bottom-left-radius: 2vw;
+                }
+                padding: 0.3vw 0.3vw !important;
+                border-bottom: 0 !important;
+            }
+        }
+    }
+}
+
+.row{ 
+    background-color: $neutral-100; 
+}

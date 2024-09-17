@@ -1,0 +1,171 @@
+@import "./assets/variable";
+
+.header-container-desktop {
+    position: fixed;
+    top: 0;
+    height: 3rem;
+    font-size: 1vw;
+    border-bottom: 1px solid $neutral-80;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100%);
+    overflow: visible;
+    z-index: 80;
+    background-color: #242020;
+
+    .page-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .aviator {
+        font-size: 1rem;
+    }
+
+    .login-button {
+        padding: 8px 16px;
+        font-weight: 700;
+        width: 6rem;
+        border-radius: 4px;
+        border: 3px;
+        background-color: rgb(2, 156, 218);
+        color: white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(74, 169, 207);
+        }
+    }
+
+    .balanceView {
+        margin-left: 1rem;
+        margin-right: 2rem;
+        width: max-content;
+        font-weight: 400;
+        padding: 8px 16px;
+        border: none;
+        color: white;
+        font-size: 1rem;
+
+    }
+
+    .refresh {
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+
+    .signup-button {
+        margin-left: 1rem;
+        margin-right: 2rem;
+        border-radius: 4px;
+        width: 6rem;
+        font-weight: 700;
+        padding: 8px 16px;
+        background-color: rgb(225, 147, 1);
+        color: white;
+        border: 3px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(155, 114, 38);
+        }
+    }
+
+    .dbutton {
+        margin-left: 1rem;
+        width: 6rem;
+        font-weight: 700;
+        padding: 8px 16px;
+        background-color: white;
+        color: black;
+        border: 3px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: white;
+        }
+    }
+
+    .aviator {
+        color: white;
+        font-size: 1.7rem;
+        font-weight: bolder;
+        cursor: pointer;
+        margin-left: 15px;
+    }
+
+    .link {
+        display: flex;
+        align-items: center;
+    }
+
+    .max {
+        color: orange;
+    }
+
+    .coins {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .aviator {
+            font-size: 1rem;
+        }
+
+        .coins {
+            font-size: 14px;
+        }
+
+        .login-button {
+            padding: 5px 7px;
+            font-weight: 700;
+            width: 10vw;
+            border-radius: 4px;
+            border: 3px;
+        }
+
+        .balanceView {
+            margin-right: 5px;
+            width: max-content;
+            font-weight: 500;
+            padding: 0px;
+            font-size: 14px;
+        }
+
+        .signup-button {
+            margin-left: 8px;
+            margin-right: 2rem;
+            border-radius: 4px;
+            width: 10vw;
+            font-weight: 700;
+            padding: 5px 7px;
+        }
+
+        .dbutton {
+            margin-left: 5px;
+            width: 14vw;
+            font-weight: 700;
+            padding: 5px 6px;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header-container-desktop {
+        position: fixed;
+        top: 0;
+        height: 3rem;
+        overflow: visible;
+        z-index: 80;
+        background-color: transparent;
+        border: 0;
+        width: 100vw;
+    }
+}

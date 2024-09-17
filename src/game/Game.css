@@ -1,0 +1,209 @@
+.multipliers-container {
+    width: 76%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #18171c69;
+    box-sizing: border-box;
+    font-size: 1rem;
+    position: fixed;
+    top: 75%;
+}
+
+.multipliers-container span {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    margin: 0 5px;
+}
+
+.bet-cashout-container {
+    align-items: center;
+    display: flex;
+    height: 85px;
+    background-color: #242020c4;
+    justify-content: space-evenly;
+    margin: 1vw;
+    padding: 20px;
+    width: -webkit-fill-available;
+}
+
+.bet-cashout-container-inside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.stage {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-top: 2vw;
+    z-index: 999;
+}
+
+.placebet {
+    margin-right: 1vw;
+    height: 6vw;
+    width: 8vw;
+    min-width: 10vw;
+    font-weight: bold;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: black;
+}
+
+.multiplier {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 12px;
+    min-width: 5vw;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 2px;
+}
+
+.toggle-cashout-icon {
+    display: flex;
+    align-items: center;
+    width: -webkit-fill-available;
+    cursor: pointer;
+}
+
+.bet-cashout-section {
+    padding: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group div {
+    margin-right: 1vw;
+    margin-left: 1vw;
+  }
+
+.bet-cashout-section div,
+.bet-cashout-section input {
+    width: 100%;
+}
+
+input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #ccc;
+}
+
+.switch-label {
+    display: block;
+}
+
+/* Responsive design for screens smaller than 1000px */
+@media screen and (max-width: 1000px) {
+    .bet-cashout-container {
+        border-radius: 16px;
+        right: 2vw;
+        transform: translateY(0);
+        background-color: #00000059;
+        flex-wrap: wrap;
+        padding: 10px;
+        position: absolute;
+        transform: translateX(0%);
+        top: 13%;
+        width: min-content;
+        height: auto;
+    }
+
+    .multipliers-container {
+        width: 103%;
+        top: 90%;
+    }
+
+    .placebet {
+        font-size: 12px;
+        height: 11vh;
+        width: 10vw;
+    }
+
+    .bet-cashout-container-inside {
+        align-items: flex-end;
+        flex-direction: column;
+    }
+
+    .multipliers-container {
+        font-size: 1rem;
+    }
+
+    .multiplier {
+        min-width: 5vw;
+    }
+
+    #c {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .placebet {
+        font-size: 12px;
+        height: 11vh;
+        width: 10vw;
+    }
+
+    #c {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .multipliers-container {
+        width: 107%;
+        top: 87%;
+    }
+
+    .bet-cashout-container {
+        right: 1vw;
+        border-radius: 16px;
+        padding: 7px;
+        transform: translateY(0);
+        background-color: #00000059;
+        flex-wrap: wrap;
+        position: absolute;
+        transform: translateX(0%);
+        top: 12%;
+        width: min-content;
+        flex-direction: column;
+    }
+
+    .bet-cashout-container-inside {
+        align-items: flex-end;
+        flex-direction: column;
+        width: min-content;
+    }
+
+    .multipliers-container {
+        font-size: 0.8rem;
+    }
+
+    .multiplier {
+        min-width: 10vw;
+    }
+}
