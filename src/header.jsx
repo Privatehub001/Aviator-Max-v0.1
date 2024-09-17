@@ -59,10 +59,10 @@ export default function Header({ socket, balance, setBalance, isStandalone, isIn
                 <div style={{ display: 'flex', height: 'min-content' }}>
                     {!shouldHideBalance && <>
                         <span className="balanceView" style={{ display: 'flex', alignItems: 'center' }}>
-                            <span className="refresh" style={{ marginRight: '8px' }}>
+                        Coins : <span style={{ color: 'orange', marginLeft: '8px' }}>{parseFloat(balance).toFixed(2)}</span>
+                        <span className="refresh" style={{ marginRight: '8px' }}>
                                 <RefreshIcon onClick={() => { setBalance(1000) }} sx={{ cursor: 'pointer' }} />
                             </span>
-                            Coins <span style={{ color: 'orange', marginLeft: '8px' }}>{parseFloat(balance).toFixed(2)}</span>
                         </span>
 
                     </>}
