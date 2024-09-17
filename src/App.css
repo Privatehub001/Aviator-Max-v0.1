@@ -189,6 +189,19 @@ input {
   .online{
     margin-top: 4rem;
   }
+  
+  .PhoneInput input {
+    font-size: 16px; 
+    color: #3b3b3b; 
+  }
+  .PhoneInputCountryIcon {
+    width: 16px; 
+    height: 16px; 
+    margin-right: 6px; 
+  }
+  .PhoneInputCountryIcon--editable {
+    cursor: pointer; 
+  }
 
   .allbets {
     position: fixed;

@@ -97,7 +97,12 @@ const LoginForm = ({ socket }) => {
     };
 
     return (
-        <div style={{ display: 'flex', marginTop: window.innerWidth < 1000 ? '20vh':'6vw', justifyContent: 'center' }}>
+        <div style={{ 
+            display: 'flex',
+            marginTop: window.innerWidth < 1000 ? '15vh':'6vw', 
+            marginLeft: window.innerWidth < 1000 ? '5vw' : '0',
+            marginRight: window.innerWidth < 1000 ? '5vw' : '0',
+            justifyContent: 'center' }}>
             <Container
                 className="centralized"
                 maxWidth="xs"
@@ -183,7 +188,7 @@ const LoginForm = ({ socket }) => {
                                                 fontSize: '16px',
                                             }}
                                         >
-                                            Enter Phone Number
+                                            Phone Number
                                         </span>
                                     )}
                                     <PhoneInput
