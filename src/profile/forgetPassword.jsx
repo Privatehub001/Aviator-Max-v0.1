@@ -239,7 +239,13 @@ const ForgetPassword = ({ socket }) => {
     };
 
     return (
-        <div style={{ display: "flex", marginTop: window.innerWidth < 1000?"20vh":"8vw", justifyContent: "center" }}>
+        <div style={{ 
+            display: 'flex',
+            marginTop: window.innerWidth < 1000 ? '15vh' : '6vw',
+            marginLeft: window.innerWidth < 1000 ? '5vw' : '0',
+            marginRight: window.innerWidth < 1000 ? '5vw' : '0',
+            justifyContent: 'center'
+          }}>
             <Container
                 className="centralized"
                 margin="dense"
@@ -255,7 +261,7 @@ const ForgetPassword = ({ socket }) => {
                 <form className='form'>
                     {!verified ?
                         <>
-                            <FormControl>
+                            <FormControl sx={{ width: window.innerWidth < 1000 ? '100%' : '100%', marginBottom: '1.5rem' }}>
                                 <Select
                                     labelId="country-select-label"
                                     placeholder='Select a country'
@@ -263,11 +269,21 @@ const ForgetPassword = ({ socket }) => {
                                     value={countrycode}
                                     onChange={handleCountryChange}
                                     sx={{
-                                        color: "#b9b9b9",
-                                        marginBottom: '16px',
+                                        color: "#3b3b3b",
+                                        marginBottom: '25px',
                                         textAlign: 'center',
                                         border: 'none',
-                                        '& .MuiOutlinedInput-notchedOutline': { border: 'none' }
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderTop: 'none',
+                                            borderLeft: 'none',
+                                            borderRight: 'none',
+                                            borderBottom: '1px solid',
+                                            borderBottomColor: '#4f4d4dbd',
+                                        },
+                                        '& .MuiSelect-select': {
+                                            paddingBottom: '4px',
+                                            paddingTop: '15px',
+                                        },
                                     }}
                                 >
                                     {countries.map((country, index) => (
@@ -276,15 +292,15 @@ const ForgetPassword = ({ socket }) => {
                                         </MenuItem>
                                     ))}
                                 </Select>
-                                <div style={{ position: 'relative', width: '100%' }}>
+                                <div style={{ position: 'relative', width: '100%', marginTop: '5px' }}>
                                     {!state.Phone && (
                                         <span
                                             style={{
                                                 position: 'absolute',
                                                 top: '50%',
-                                                left: '5em',
+                                                left: window.innerWidth < 1000 ? '6em' : '8em',
                                                 transform: 'translateY(-50%)',
-                                                color: '#b9b9b9',
+                                                color: '#605f5f',
                                                 pointerEvents: 'none',
                                                 fontSize: '16px',
                                             }}
@@ -306,7 +322,9 @@ const ForgetPassword = ({ socket }) => {
                                         style={{
                                             color: 'black',
                                             fontSize: '20px',
-                                            paddingLeft: state.Phone ? '10px' : '0px',
+                                            width: '100%',
+                                            borderBottom: '1px solid #4f4d4dbd',
+                                            paddingBottom: '4px',
                                         }}
                                     />
                                 </div>
@@ -314,12 +332,16 @@ const ForgetPassword = ({ socket }) => {
                                     type="button"
                                     onClick={showResendOtp ? sendOtp : !showotp ? submitNumber : undefined}
                                     variant="contained"
-                                    sx={{ mt: '2rem', width: '25rem' }}
+                                    sx={{
+                                        mt: '1rem',
+                                        width: window.innerWidth < 1000 ? '100%' : '25rem',
+                                        fontSize: window.innerWidth < 1000 ? '1rem' : '1.2rem',
+                                      }}
                                 >
                                     {showResendOtp ? "Resend OTP" : loading ? <CircularProgress size={24} /> : "Get OTP"}
                                 </Button>
                             </FormControl>
-                            <FormControl>
+                            <FormControl sx={{ marginTop: '5px', width: window.innerWidth < 1000 ? '100%' : '100%' }}>
                                 <TextField
                                     margin="dense"
                                     required
@@ -328,7 +350,13 @@ const ForgetPassword = ({ socket }) => {
                                     type="text"
                                     onChange={handleOtpChange}
                                 />
-                                <Button type="button" onClick={showotp ? verifyOtp : undefined} variant="contained" sx={{ mt: '2rem', width: '25rem' }} disabled={!showotp}>
+                                <Button type="button" onClick={showotp ? verifyOtp : undefined} variant="contained" 
+                                sx={{
+                                    mt: '2rem',
+                                    width: window.innerWidth < 1000 ? '100%' : '25rem',
+                                    fontSize: window.innerWidth < 1000 ? '1rem' : '1.2rem',
+                                  }}
+                                   disabled={!showotp}>
                                     {showotp ? loading ? <CircularProgress size={24} /> : "Verify OTP" : "Verify OTP"}
                                 </Button>
                             </FormControl></> :

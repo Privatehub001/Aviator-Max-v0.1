@@ -32,7 +32,7 @@ export default function Header({ socket, balance, setBalance, isStandalone, isIn
     };
     
     const isSmallScreen = window.innerWidth <= 1000; // Check for small screen
-    const isAuthPage = location.pathname === '/login' || location.pathname === '/signup'; // Check for auth pages
+    const isAuthPage = location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/recoveraccount'; // Check for auth pages
 
     return (
         <div className="header-container-desktop">
