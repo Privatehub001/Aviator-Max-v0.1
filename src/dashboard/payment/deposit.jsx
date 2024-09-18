@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import {
-    Button, Container, TextField, Typography, Grid, Box, Alert, TableCell, TableRow, TableHead, TableBody, Table, Paper, TableContainer, CircularProgress
+    Button, Container, TextField, Typography, Grid, useMediaQuery, Box, Alert, TableCell, TableRow, TableHead, TableBody, Table, Paper, TableContainer, CircularProgress
 } from '@mui/material';
 
 const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime, loading, tableStyles }) => {
@@ -11,6 +11,7 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
     const userId = useSelector(state => state.aviatordata.userId).substring(0, 20);
     const userInfo = useSelector(state => state.aviatordata.userInfo);
     const navigate = useNavigate();
+    const isMobileScreen = useMediaQuery('(max-width:1000px)');
 
     useEffect(() => {
         const handleMessage = (event) => {
@@ -76,12 +77,23 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
 
     return (
         <Box my={4} mt={balance? 0:20}>
-            {balance&&<Paper elevation={1} sx={{ backgroundColor: 'background.paper', padding: 2, display: 'inline-block' }}>
+            {balance&&
+            
+            <Paper elevation={1} 
+            sx={{
+                backgroundColor: 'background.paper',
+                padding: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+              }}>
                 <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>Wallet Balance</Typography>
                 <Typography variant="h6" sx={{ color: 'text.primary' }}>{balance.wallet_balance || 0}</Typography>
             </Paper>}
 
-            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '',  }}>
                 <Container
                     maxWidth="xs"
                     sx={{
@@ -162,7 +174,7 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
                         <CircularProgress />
                     </Box>
                 ) : transactions.filter(transaction => transaction.deposit > 0).length > 0 ? (
-                    <TableContainer component={Paper} sx={tableStyles}>
+                    <TableContainer component={Paper} sx={{...tableStyles, margin: isMobileScreen ? '1px' : '16px'}}>
                         <Table>
                             <TableHead>
                                 <TableRow>

@@ -121,7 +121,7 @@ const ResetPassword = ({ socket }) => {
 
     return (
         <div>
-            <Typography variant={isMobile ? 'h6' : 'h5'} align="center" sx={{ marginBottom: '1rem',marginTop:'2vh' }}>
+            <Typography variant={isMobile ? 'h6' : 'h5'} align="center" sx={{ marginBottom: isMobile ? '0.2rem' : '2rem',marginTop:'2vh' }}>
                 Reset Password
             </Typography>
             <Container maxWidth="sm">

@@ -42,7 +42,7 @@ export default function Header({ socket, balance, setBalance, isStandalone, isIn
                     <MenuIcon 
                         sx={{ 
                             color: 'white',    
-                            fontSize: 40,
+                            fontSize: 30,
                             alignItems:'center'     
                         }} 
                     />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from "react-redux";
 import {
-    Button, Container, TextField, Typography, Box, Alert,TableCell, TableRow, TableHead, TableBody, Table, Paper, TableContainer, CircularProgress
+    Button, Container, TextField, Typography,useMediaQuery, Box, Alert,TableCell, TableRow, TableHead, TableBody, Table, Paper, TableContainer, CircularProgress
 } from '@mui/material';
 
 const Withdraw = ({ balance, transactions, formatDateTime, loading, tableStyles }) => {
@@ -13,6 +13,7 @@ const Withdraw = ({ balance, transactions, formatDateTime, loading, tableStyles 
     const [info, setInfo] = useState(null);
     const userId = useSelector(state => state.aviatordata.userId);
     const userInfo = useSelector(state => state.aviatordata.userInfo);
+    const isMobileScreen = useMediaQuery('(max-width:1000px)');
 
     const handlePayment = async () => {
         setLoading(true);
@@ -70,7 +71,15 @@ const Withdraw = ({ balance, transactions, formatDateTime, loading, tableStyles 
 
     return (
         <Box my={4}>
-            <Paper elevation={1} sx={{ backgroundColor: 'background.paper', padding: 2, display: 'inline-block' }}>
+            <Paper elevation={1} sx={{
+                backgroundColor: 'background.paper',
+                padding: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+              }}>
                 <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>Withdrawal Balance</Typography>
                 <Typography variant="h6" sx={{ color: 'text.primary' }}>{parseFloat(balance.withdrawal_balance).toFixed(2)  || 0}</Typography>
             </Paper>
@@ -190,7 +199,7 @@ const Withdraw = ({ balance, transactions, formatDateTime, loading, tableStyles 
                         <CircularProgress />
                     </Box>
                 ) : transactions .filter(transaction => transaction.withdraw > 0).length > 0 ? (
-                    <TableContainer component={Paper} sx={tableStyles}>
+                    <TableContainer component={Paper}  sx={{...tableStyles, margin: isMobileScreen ? '1px' : '16px'}}>
                         <Table>
                             <TableHead>
                                 <TableRow>

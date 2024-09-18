@@ -5,6 +5,7 @@ import {
   Box,
   Paper,
   Table,
+  useMediaQuery,
   TableBody,
   TableCell,
   TableContainer,
@@ -17,6 +18,7 @@ const UserBets = () => {
   const [bets, setBets] = useState([]);
   const [loading, setLoading] = useState(true);
   const userId = useSelector((state) => state.aviatordata.userId);
+  const isSmallScreen = useMediaQuery('(max-width:1000px)');
 
   useEffect(() => {
     displayUserBets();
@@ -77,9 +79,9 @@ const UserBets = () => {
 
   return (
     <Container>
-      <Typography variant="h5" sx={{ color: 'text.primary',textAlign:'center' }}>Game Results</Typography>
+      <Typography variant="h5" sx={{ color: 'text.primary',textAlign:'center'}} gutterBottom>Game History</Typography>
       <Box my={4}>
-        <TableContainer component={Paper} sx={{ bgcolor: 'background.paper' }}>
+      <TableContainer component={Paper} sx={{ bgcolor: 'background.paper'}}>
           <Table>
             <TableHead>
               <TableRow>

@@ -92,7 +92,7 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
         { name: "Game History", icon: <HistoryIcon />, short: "History" },
         { name: "Personal Information", icon: <PersonIcon />, short: "Profile" },
         { name: "Referral", icon: <GroupAddIcon />, short: "Referral" },
-        { name: "Contact Us", icon: <ContactMailIcon />, short: "Contact" },
+        { name: "Contact Us", icon: <ContactMailIcon />, short: "Contact Us" },
         isAdmin && { name: "Pending Transactions", icon: <ContactMailIcon />, short: "Pending Tx" },
     ];
 
@@ -216,7 +216,7 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
                     >
                         {isMobile ? (
                             <>
-                                {item.icon} {item.short}
+                                {item.icon} &nbsp; {item.short}
                             </>
                         ) : (
                             item.name
