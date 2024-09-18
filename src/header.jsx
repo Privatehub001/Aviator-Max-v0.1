@@ -39,7 +39,13 @@ export default function Header({ socket, balance, setBalance, isStandalone, isIn
             <div style={{display:'flex'}}>
             {isSmallScreen && location.pathname !== "/" && (
                 <div className="menu-icon" onClick={toggleMenu}>
-                    <MenuIcon />
+                    <MenuIcon 
+                        sx={{ 
+                            color: 'white',    
+                            fontSize: 40,
+                            alignItems:'center'     
+                        }} 
+                    />
                 </div>
             )}
              <div onClick={() => {
@@ -49,24 +55,17 @@ export default function Header({ socket, balance, setBalance, isStandalone, isIn
             }} className="aviator">Aviator <span className="max">Max</span></div>
             </div>
 
-            {(location.pathname !== '/' && location.pathname !== '/deposit' && isSmallScreen) && (
-                <button onClick={() => handleNavigation('/')}
-                style={{
-                    backgroundColor: 'rgb(2, 156, 218)',
-                    color: 'white',   
-                    border: 'none', 
-                    borderRadius: '5px', 
-                    cursor: 'pointer',
-                    marginLeft: '4px',
-                    width: 'auto',
-                    fontSize: '12',
-                    fontweight: 'bold',
-                    padding: '5px 6px'
-                  }}>Play Game</button>
+            {(location.pathname !== '/' && location.pathname !== '/deposit' &&  isSmallScreen) && (
+                
+                <button onClick={() => handleNavigation('/')} id="playGameButton">Play Game</button>
+                
             )}
             {isSignedIn ? (
                 <div className="link">
+                    {!(location.pathname === '/dashboard' && isSmallScreen) && (
                     <span className="balanceView">Coins : <span style={{ color: 'orange' }}>{parseFloat(balance).toFixed(2)}</span></span>
+                )}
+
                     {((location.pathname !== '/dashboard' && location.pathname !== '/deposit') || window.innerWidth >= 1000) && (
                         <>
                             <button onClick={() => handleNavigation('/deposit')} className="login-button">Deposit</button>
