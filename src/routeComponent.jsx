@@ -234,7 +234,7 @@ function RoutesComponent({ id, socket }) {
     };
     return (
       <div className='add-button' style={{ color: '#fff', textAlign: 'center' }}>
-        <p>You have the Aviator app installed! Please open it to access gameplay.</p>
+        <p>Aviator Max icon added on your homescreen ! Please open it to access gameplay.</p>
 
         <div style={{ display: 'flex', height: 'min-content', justifyContent: 'center' }}>
           <button onClick={() => handleNavigation('/login')} className="login-button">Login</button>
@@ -273,7 +273,7 @@ function RoutesComponent({ id, socket }) {
   if (window.innerWidth < 1000 && !isInstalled && !isStandalone && showInstallButton) {
     return (
       <div className='add-button'>
-        <p>Please add this app to your home screen to continue.</p>
+        <p>Please add this app to your home screen to continue in mobiles.</p>
         <button className='add-to-home-screen-btn' onClick={handleInstall}>Add to Home Screen</button>
       </div>
     );

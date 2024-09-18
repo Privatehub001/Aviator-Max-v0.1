@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import {
-    Button, Container, TextField, Typography, Grid, useMediaQuery, Box, Alert, TableCell, TableRow, TableHead, TableBody, Table, Paper, TableContainer, CircularProgress
+    Button, Container, TextField, Typography, useMediaQuery, Box, Alert, TableCell, TableRow, TableHead, TableBody, Table, Paper, TableContainer, CircularProgress
 } from '@mui/material';
 
 const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime, loading, tableStyles }) => {
@@ -53,7 +53,6 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
             });
 
             const paymentData = await response.json();
-            const paymentWindow = window.open('', 'PaymentWindow');
 
             const form = document.createElement('form');
             form.method = 'POST';
@@ -116,13 +115,10 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
                         type="number"
                         value={amount}
                         onChange={(e) => {
+                            // Allow user to enter any value without restrictions
                             const enteredAmount = parseInt(e.target.value);
-                            if (enteredAmount >= 1000) {
                                 setAmount(enteredAmount);
                                 setError(null);
-                            } else {
-                                setAmount(1000);
-                            }
                         }}
                         fullWidth
                         margin="normal"
@@ -144,8 +140,20 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
                             },
                         }}
                     />
+                    <Typography variant="body2" align="center" sx={{ color: 'grey', marginBottom: '1rem' }}>
+            * Minimum deposit is 100 & Maximum deposit is 1000.
+        </Typography>
                     <Button
-                        onClick={handlePayment}
+                        onClick={() => {
+                            if (amount < 100) {
+                                setError("Minimum deposit is 100");
+                            } else if (amount > 1000) {
+                                setError("Maximum deposit is 1000");
+                            } else {
+                                setError(null);
+                                handlePayment(); // Proceed to payment only if the amount is valid
+                            }
+                        }}
                         variant="contained"
                         fullWidth
                         sx={{
@@ -157,6 +165,7 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
                             color: 'white',
                             padding: '10px 0',
                             fontSize: '1rem',
+                            fontWeight: '700',
                         }}
                     >
                         Deposit
