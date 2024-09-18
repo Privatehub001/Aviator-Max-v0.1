@@ -292,9 +292,15 @@ const SignUpForm = ({ socket }) => {
         }
     };
 
-    return (
-        <div style={{ display: "flex", marginTop: window.innerWidth < 1000?"20vh":"6vw", justifyContent: "center" }}>
-            <Container
+        return (
+        <div style={{ 
+            display: 'flex',
+            marginTop: window.innerWidth < 1000 ? '15vh' : '6vw', 
+            marginLeft: window.innerWidth < 1000 ? '5vw' : '0',
+            marginRight: window.innerWidth < 1000 ? '5vw' : '0',
+            justifyContent: 'center' 
+        }}>            
+        <Container
                 className="centralized"
                 margin="dense"
                 maxWidth="xs"
@@ -307,9 +313,9 @@ const SignUpForm = ({ socket }) => {
             >
                 <MyText text={"Sign Up"} type="h4" />
                 <form className='form'>
-                    {!verified ?
+                {!verified ?
                         <>
-                            <FormControl>
+                            <FormControl sx={{ width: window.innerWidth < 1000 ? '100%' : '100%', marginBottom: '1.5rem' }}>
                                 <Select
                                     labelId="country-select-label"
                                     placeholder='Select a country'
@@ -346,7 +352,7 @@ const SignUpForm = ({ socket }) => {
                                             style={{
                                                 position: 'absolute',
                                                 top: '50%',
-                                                left: '8em',
+                                                left: window.innerWidth < 1000 ? '6em' : '8em',
                                                 transform: 'translateY(-50%)',
                                                 color: '#605f5f',
                                                 pointerEvents: 'none',
@@ -375,21 +381,27 @@ const SignUpForm = ({ socket }) => {
                                             borderBottom: '1px solid #4f4d4dbd',
                                             paddingBottom: '4px',
                                         }}
-
                                     />
                                 </div>
+
                                 <Button
                                     type="button"
                                     onClick={showResendOtp ? sendOtp : !showotp ? submitNumber : undefined}
                                     variant="contained"
-                                    sx={{ mt: '1rem', width: '25rem' }}
+                                    sx={{
+                    mt: '1rem',
+                    width: window.innerWidth < 1000 ? '100%' : '25rem',
+                    fontSize: window.innerWidth < 1000 ? '1rem' : '1.2rem',
+                  }}
                                     disabled={count > 0}
                                 >
                                     {showResendOtp ? "Resend OTP" : loading ? <CircularProgress size={24} /> : "Get OTP"}
                                 </Button>
                                 {count > 0 && <span style={{ fontSize: '16px' }}>Resend OTP in {count} seconds.</span>}
-                            </FormControl>
-                            <FormControl>
+
+                                </FormControl>
+
+                                <FormControl sx={{ marginTop: '5px', width: window.innerWidth < 1000 ? '100%' : '100%' }}>
                                 <TextField
                                     margin="dense"
                                     required
@@ -398,12 +410,21 @@ const SignUpForm = ({ socket }) => {
                                     type="text"
                                     onChange={handleOtpChange}
                                 />
-                                <Button type="button" onClick={showotp ? verifyOtp : undefined} variant="contained" sx={{ mt: '2rem', width: '25rem' }} disabled={!showotp}>
+                                
+                                <Button type="button" onClick={showotp ? verifyOtp : undefined} variant="contained" 
+                    sx={{
+                      mt: '2rem',
+                      width: window.innerWidth < 1000 ? '100%' : '25rem',
+                      fontSize: window.innerWidth < 1000 ? '1rem' : '1.2rem',
+                    }}
+                    disabled={!showotp}>
+
                                     {showotp ? loading ? <CircularProgress size={24} /> : "Verify OTP" : "Verify OTP"}
                                 </Button>
-                            </FormControl></> :
+                                </FormControl></> :
                         <FormControl sx={{ width: '100%' }}>
-                            <>
+              <>
+
                                 <TextField
                                     name="name"
                                     margin="dense"
@@ -413,21 +434,21 @@ const SignUpForm = ({ socket }) => {
                                     type="text"
                                     autoComplete="Name"
                                     onChange={handleChange}
+                                    sx={{ width: window.innerWidth < 1000 ? '100%' : '100%' }}
                                 />
-
                                 <div className='radiogroup'>
                                     <div>Gender</div>
                                     <div className='gender'>
                                         <div>
-                                            <input value={1} name='male' type='radio' margin="dense" variant="standard" checked={state.gender == 1} onChange={(e) => setGender(e.target.value)} />
-                                            <label>Male</label></div>
+                                        <input value={1} name='male' type='radio' margin="dense" variant="standard" checked={state.gender == 1} onChange={(e) => setGender(e.target.value)} />
+                                        <label>Male</label></div>
                                         <div>
-                                            <input value={0} name='female' type='radio' margin="dense" variant="standard" checked={state.gender == 0} onChange={(e) => setGender(e.target.value)} />
+                                        <input value={0} name='female' type='radio' margin="dense" variant="standard" checked={state.gender == 0} onChange={(e) => setGender(e.target.value)} />
                                             <label>Female</label></div>
-                                    </div>
                                 </div>
 
-                                <TextField
+                    </div>
+                    <TextField
                                     type='date'
                                     value={state.dob}
                                     onChange={handleChange}
@@ -533,7 +554,7 @@ const SignUpForm = ({ socket }) => {
                 ></div>
             </Container>
         </div>
-    );
+);
 };
 
 export default SignUpForm;
