@@ -66,15 +66,13 @@ function Game({ socket, setbetEnded, state, betEnded, history, jumpArray, win, r
   useEffect(() => {
     if (roundstarted) {
       setbetEnded(false);
+      setBetPlaced(false);
       if (betPlacedNext) {
         // placeBet();
         setBetPlaced(true);
         setBetPlacedNext(false);
-      } else {
-        setBetPlaced(false);
       }
-
-      if (autoBet && !betPlacedNext && !betPlaced) {
+      else if (autoBet && !betPlacedNext) {
         placeBet();
       }
       setroundstarted(false);

@@ -7,8 +7,7 @@ import Withdraw from "./payment/withdraw";
 import UserBets from "./userBets";
 import Overview from "./overview";
 import { ThemeProvider } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
-import { Snackbar, Alert } from '@mui/material';
+import { CssBaseline, Snackbar, Alert } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import './Dashboard.css';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -74,6 +73,8 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
     const [balance, setBalance] = useState(0);
     const [transactions, setTransactions] = useState([]);
     const [open, setOpen] = useState(false);
+    const [errorOpen, setErrorOpen] = useState(false); 
+    const [errorMessage, setErrorMessage] = useState("");
     const isMobile = window.innerWidth <= 1000;
 
 
@@ -144,6 +145,14 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
         checkAdminStatus();
     }, [userId]);
 
+    const handleDepositClick = () => {
+        if (balance.balance > 0) {
+            setErrorMessage(`You have ${balance.balance} coins available in your wallet.`);
+            setErrorOpen(true);
+        }
+            setSelectedMenu("Deposit");
+    };
+
     const formatDateTime = (dateTimeString) => {
         const date = new Date(dateTimeString);
         return {
@@ -210,7 +219,11 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
                         key={item.name}
                         className={selectedMenu === item.name ? "active" : ""}
                         onClick={() => {
-                            setSelectedMenu(item.name);
+                            if (item.name === "Deposit") {
+                                handleDepositClick(); 
+                            } else {
+                                setSelectedMenu(item.name);
+                            }
                             setMenuOpen(false);
                         }}
                     >
@@ -250,6 +263,21 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
                     }}
                 >
                     Deposit Successful!
+                </Alert>
+            </Snackbar>
+            <Snackbar
+                open={errorOpen}
+                // autoHideDuration={5000}
+                onClose={() => setErrorOpen(false)}
+                anchorOrigin={{ vertical: 'top', horizontal:'30%' }}
+            >
+                <Alert
+                    onClose={() => setErrorOpen(false)}
+                    severity="error"
+                    variant="filled"
+                    sx={{marginTop:'8vh',marginLeft:'16%'}}
+                >
+                    {errorMessage}
                 </Alert>
             </Snackbar>
         </div>
