@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PaymentButton from "./payment/deposit";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ReferralLinkButton from "./referrer";
 import UserInfo from "./personalInfo";
-import LogoutIcon from '@mui/icons-material/Logout';
 import Withdraw from "./payment/withdraw";
-import { setClearAppDataAct } from "./store/appdata/appdataslicer";
 import UserBets from "./userBets";
 import Overview from "./overview";
 import { ThemeProvider } from '@mui/material/styles';
@@ -63,9 +61,8 @@ const theme = createTheme({
     },
 });
 
-const Dashboard = ({ socket, setMenuOpen,isStandalone, isInstalled, menuOpen }) => {
+const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
     const location = useLocation();
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const refId = useSelector(state => state.aviatordata.userInfo.referral_id);
     const userId = useSelector(state => state.aviatordata.userId);
@@ -88,17 +85,6 @@ const Dashboard = ({ socket, setMenuOpen,isStandalone, isInstalled, menuOpen }) 
         navigate(location.pathname, { replace: true, state: {} });
       }
     }, [location.state]);
-
-    const handleLogout = () => {
-        setBalance(1000);
-        dispatch(setClearAppDataAct());
-        localStorage.removeItem('aviatorState');
-        if (!isStandalone || !isInstalled) {
-            navigate('/login');
-        }else {
-            navigate('/');
-        }
-    };
 
     const menuItems = [
         { name: "Overview", icon: <HomeIcon />, short: "Home" },
@@ -250,19 +236,6 @@ const Dashboard = ({ socket, setMenuOpen,isStandalone, isInstalled, menuOpen }) 
                         )}
                     </div>
                 ))}
-            </div>
-
-            {/* Logout button placed at the bottom */}
-            <div className="logout-container">
-                <div
-                    className="logout-button"
-                    onClick={() => {
-                        handleLogout();
-                        setMenuOpen(false);
-                    }}
-                >
-                    <LogoutIcon /> &nbsp; Logout
-                </div>
             </div>
 
             <div className="menu-options">
