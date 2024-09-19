@@ -25,7 +25,7 @@ function Game({ socket, setbetEnded, state, betEnded, history, jumpArray, win, r
     width: Math.min(700, window.innerWidth),
     height: Math.min(450, window.innerHeight),
   });
-  const [betAmount, setBetAmount] = useState(userCountryCode == '+91' ? 10 : 1);
+  const [betAmount, setBetAmount] = useState(userCountryCode == '+91' ? 1 : 1);
   const [cashoutVisible, setCashoutVisible] = useState(true); 
   const [open, setOpen] = useState(false);
 
@@ -223,38 +223,34 @@ function Game({ socket, setbetEnded, state, betEnded, history, jumpArray, win, r
   };
 
   const handleBetChange = (event) => {
-    const newBetAmount = parseFloat(event.target.value);
-    if (userCountryCode === '+91') {
-      if (newBetAmount >= 10 && newBetAmount <= 500) {
-        setBetAmount(newBetAmount);
-      }
-    } else {
-      setBetAmount(newBetAmount);
+    const newBetAmount = Math.floor(parseFloat(event.target.value));
+    if (newBetAmount < 1) {
+      newBetAmount = 1;
+    } else if (newBetAmount > 500) {
+      newBetAmount = 500;
     }
+  
+    setBetAmount(newBetAmount);
   };
 
   const adjustBetAmount = (increment) => {
     setBetAmount((prev) => {
-      let newValue;
-      if (userCountryCode === '+91' && increment > 0) {
-        newValue = parseFloat(prev) + 10;
-        if (newValue >= 10 && newValue <= 500) {
-          return newValue;
-        } else {
-          return prev;
-        }
-      } else if (userCountryCode === '+91' && increment < 0) {
-        newValue = parseFloat(prev) - 10 > 0 ? parseFloat(prev) - 10 : prev;
-        return newValue;
+      let newValue = Math.floor(parseFloat(prev)) + increment; // Ensure whole number increment/decrement
+  
+      // Enforce the min and max limits (1 - 500)
+      if (newValue < 1) {
+        newValue = 1;
+      } else if (newValue > 500) {
+        newValue = 500;
       }
-      else {
-        newValue = parseFloat(prev) + increment;
-        return newValue.toFixed(2);
-      }
+  
+      return newValue; // Return the adjusted bet amount
     });
   };
 
-  const handleCashoutChange = (event) => setCashoutAmount(parseFloat(event.target.value));
+  const handleCashoutChange = (event) => {
+    setCashoutAmount(Math.floor(parseFloat(event.target.value))); // Cashout amount as whole number
+  };
 
   const toggleAutoBet = () => {
     if (!autoBet && !betPlaced && !betPlacedNext && state.wait) {
