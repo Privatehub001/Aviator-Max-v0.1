@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PaymentButton from "./payment/deposit";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ReferralLinkButton from "./referrer";
 import UserInfo from "./personalInfo";
+import LogoutIcon from '@mui/icons-material/Logout';
 import Withdraw from "./payment/withdraw";
+import { setClearAppDataAct } from "./store/appdata/appdataslicer";
 import UserBets from "./userBets";
 import Overview from "./overview";
 import { ThemeProvider } from '@mui/material/styles';
@@ -61,8 +63,9 @@ const theme = createTheme({
     },
 });
 
-const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
+const Dashboard = ({ socket, setMenuOpen,isStandalone, isInstalled, menuOpen }) => {
     const location = useLocation();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const refId = useSelector(state => state.aviatordata.userInfo.referral_id);
     const userId = useSelector(state => state.aviatordata.userId);
