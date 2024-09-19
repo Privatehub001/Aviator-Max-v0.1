@@ -86,6 +86,17 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
       }
     }, [location.state]);
 
+    const handleLogout = () => {
+        setBalance(1000);
+        dispatch(setClearAppDataAct());
+        localStorage.removeItem('aviatorState');
+        if (!isStandalone || !isInstalled) {
+            navigate('/login');
+        }else {
+            navigate('/');
+        }
+    };
+
     const menuItems = [
         { name: "Overview", icon: <HomeIcon />, short: "Home" },
         { name: "Deposit", icon: <AccountBalanceWalletIcon />, short: "Deposit" },
@@ -237,6 +248,20 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
                     </div>
                 ))}
             </div>
+
+            {/* Logout button placed at the bottom */}
+            <div className="logout-container">
+                <div
+                    className="logout-button"
+                    onClick={() => {
+                        handleLogout();
+                        setMenuOpen(false);
+                    }}
+                >
+                    <LogoutIcon /> &nbsp; Logout
+                </div>
+            </div>
+
             <div className="menu-options">
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
