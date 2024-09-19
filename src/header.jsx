@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import "./_header.scss";
 import RefreshIcon from '@mui/icons-material/Refresh';
 import MenuIcon from '@mui/icons-material/Menu'; 
+import PaymentButton from "./dashboard/payment/deposit";
 
 export default function Header({ socket, balance, setBalance, isStandalone, isInstalled, toggleMenu}) {
     const hideBalanceOnPaths = ['/login', '/signup', '/recoveraccount'];
