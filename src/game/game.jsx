@@ -314,7 +314,7 @@ function Game({ socket, setbetEnded, state, betEnded, history, jumpArray, win, r
         <div className="bet-cashout-container-inside">
           <div className="bet-cashout-section"
             style={{ opacity: toggleInteraction ? 0.5 : 1 }}>
-            <div>STAKE</div>
+            <div>Minimum : 1 & Maximum :500</div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ display: 'flex', backgroundColor: 'black', borderRadius: '3vw', border: '1px solid black', alignItems: 'center' }}>
                 <RemoveCircleIcon className="points" onClick={!toggleInteraction ? () => adjustBetAmount(-0.25) : undefined} />
