@@ -22,7 +22,7 @@ function ReferralLinkButton({ refId, userId }) {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const generateReferralLink = () => `https://aviator-max-v1.vercel.app/signup?refID=${refId}`;
+    const generateReferralLink = () => `https://skysprints.vercel.app/signup?refID=${refId}`;
 
     const handleCopyLink = () => {
         const link = generateReferralLink();
