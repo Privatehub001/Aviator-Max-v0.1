@@ -222,7 +222,7 @@ function RoutesComponent({ id, socket }) {
   if (isAviatorInstalled && !isStandalone && isSignedIn) {
     return (
       <div className='add-button' style={{ padding: '10px', backgroundColor: '#333', color: '#fff', textAlign: 'center' }}>
-        <p>You have the Aviator app installed! Please open it to access.</p>
+        <p>You have the Sky Sprint app installed! Please open it to access.</p>
       </div>
     );
   }
@@ -234,7 +234,7 @@ function RoutesComponent({ id, socket }) {
     };
     return (
       <div className='add-button' style={{ color: '#fff', textAlign: 'center' }}>
-        <p>Aviator Max icon added on your homescreen ! Please open it to access gameplay.</p>
+        <p>Sky Sprint icon added on your homescreen ! Please open it to access gameplay.</p>
 
         <div style={{ display: 'flex', height: 'min-content', justifyContent: 'center' }}>
           <button onClick={() => handleNavigation('/login')} className="login-button">Login</button>
@@ -264,7 +264,7 @@ function RoutesComponent({ id, socket }) {
     return (
       <div className='add-button' style={{ color: '#fff', textAlign: 'center' }}>
         <p>
-          To install the Aviator app, tap the share icon <span>🔗</span> in Safari and select "Add to Home Screen."
+          To install the Sky Sprint app, tap the share icon <span>🔗</span> in Safari and select "Add to Home Screen."
         </p>
       </div>
     );

@@ -53,7 +53,7 @@ export default function Header({ socket, balance, setBalance, isStandalone, isIn
                 if (window.innerWidth > 1000) {
                     handleNavigation('/');
                 }
-            }} className="aviator">Aviator <span className="max">Max</span></div>
+            }} className="aviator">Sky <span className="max">Sprint</span></div>
             </div>
 
             {(location.pathname !== '/' && location.pathname !== '/deposit' &&  isSmallScreen) && (
