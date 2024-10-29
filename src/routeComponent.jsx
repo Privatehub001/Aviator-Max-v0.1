@@ -9,6 +9,7 @@ import ForgetPassword from './profile/forgetPassword';
 import Dashboard from './dashboard/dashboard';
 import PaymentButton from './dashboard/payment/deposit';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Icon } from '@mui/material'; // Material UI icon component
 
 function RoutesComponent({ id, socket }) {
   const isSignedIn = useSelector((state) => state.aviatordata.isSignedIn);
@@ -272,66 +273,135 @@ function RoutesComponent({ id, socket }) {
 
   if (window.innerWidth < 1000 && !isInstalled && !isStandalone && showInstallButton) {
     return (
-      <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f5f5f5', padding: '10px' }}>
+      <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f5f5f5', paddingBottom: '60px' }}>
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+      <div style={{ 
+        position: 'sticky', 
+        top: 0, 
+        zIndex: 10, 
+        backgroundColor: '#ffffff', 
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
+        padding: '10px', 
+        display: 'flex', 
+        alignItems: 'center' 
+      }}>
         <img src="Google_play_icon.png" alt="Google Play Logo" style={{ width: '24px', marginRight: '10px' }} />
+        <p style={{ margin: 0, fontSize: '16px', color: '#555', fontWeight:'600' }}>Google Play</p>
       </div>
 
-      {/* App Info */}
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-        <img src="logo512.png" alt="App Icon" style={{ width: '60px', height: '60px', marginRight: '10px' }} />
-        <div>
-          <h2 style={{ margin: 0, fontSize: '18px' }}>Sky Sprint - Live Casino, Slots, Crash</h2>
-          <p style={{ fontSize: '12px', color: '#4caf50' }}>PariMatch</p>
-          <div style={{ display: 'flex', gap: '10px', fontSize: '12px', color: '#666' }}>
-            <span>4.9★ 1.3K reviews</span>
-            <span>500K+ Downloads</span>
-            <span>Rated for 12+</span>
+      {/* Page Content */}
+      <div style={{ padding: '10px' }}>
+        {/* App Info */}
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+          <img src="app_icon.png" alt="App Icon" style={{ width: '60px', height: '60px', marginRight: '10px' }} />
+          <div>
+            <h2 style={{ margin: 0, fontSize: '18px' }}>909U - Casino, Slots, Crash, Aviator</h2>
+            <p style={{ fontSize: '12px', color: '#4caf50' }}>India's most trusted real money live casino</p>
+            <div style={{ display: 'flex', gap: '10px', fontSize: '12px', color: '#666' }}>
+              <span>4.9★</span>
+              <span>500K+ Downloads</span>
+              <span>Rated for 12+</span>
+            </div>
           </div>
+        </div>
+
+        {/* Install Button */}
+        <button style={{ 
+          backgroundColor: '#4caf50', 
+          color: '#fff', 
+          padding: '10px', 
+          borderRadius: '4px', 
+          border: 'none', 
+          fontSize: '16px', 
+          width: '100%', 
+          marginBottom: '10px' 
+        }}>Install</button>
+
+        {/* Share and Wishlist */}
+        <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '14px', color: '#555', marginBottom: '10px' }}>
+          <span>Share</span>
+          <span>Add to wishlist</span>
+        </div>
+
+        {/* Images */}
+        <div style={{ marginTop: '10px' }}>
+          <img src="app_screenshot1.jpg" alt="App Screenshot" style={{ width: '100%', borderRadius: '4px' }} />
+          <img src="app_screenshot2.jpg" alt="App Screenshot" style={{ width: '100%', borderRadius: '4px', marginTop: '10px' }} />
+        </div>
+
+        {/* About Section */}
+        <div style={{ marginTop: '20px' }}>
+          <h3>About this app</h3>
+          <p>🎉 Welcome to 909U — Your Gaming Paradise! 🎉</p>
+          <p>909U is a unique and exciting gaming app, allowing you to enjoy the fun of the casino without spending one cent.</p>
+          <h4>🌟 Game Features 🌟</h4>
+          <ul>
+            <li>Unlimited Roulette Fun</li>
+            <li>Competition and Challenges</li>
+          </ul>
+        </div>
+
+        {/* Tags */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: '20px' }}>
+          <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Casino</span>
+          <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Slot Machine</span>
+          <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Game</span>
+        </div>
+
+        {/* Data Safety */}
+        <div style={{ marginTop: '20px' }}>
+          <h3>Data safety</h3>
+          <p>Safety starts with understanding how developers collect and share your data.</p>
         </div>
       </div>
 
-      {/* Install Button */}
-      <button style={{ backgroundColor: '#4caf50', color: '#fff', padding: '10px', borderRadius: '4px', border: 'none', fontSize: '16px', width: '100%', marginBottom: '10px' }}>Install</button>
-
-      {/* Share and Wishlist */}
-      <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '14px', color: '#555' }}>
-        <span>Share</span>
-        <span>Add to wishlist</span>
+      {/* Fixed Bottom Menu */}
+      <div style={{
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      height: '60px',
+      backgroundColor: '#ffffff',
+      boxShadow: '0 -2px 4px rgba(0,0,0,0.1)',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      zIndex: 10,
+      fontSize: '12px',
+      color: '#555'
+    }}>
+      {/* Games */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#555' }}>
+        <Icon>sports_esports</Icon>
+        <span>Games</span>
       </div>
 
-      {/* Images */}
-      <div style={{ marginTop: '10px' }}>
-        
+      {/* Apps */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#4caf50' }}>
+        <Icon>apps</Icon>
+        <span>Apps</span>
       </div>
 
-      {/* About Section */}
-      <div style={{ marginTop: '20px' }}>
-        <h3>About this app</h3>
-        <p>🎉 Welcome to 909U — Your Gaming Paradise! 🎉</p>
-        <p>909U is a unique and exciting gaming app, allowing you to enjoy the fun of the casino without spending one cent.</p>
-        <h4>🌟 Game Features 🌟</h4>
-        <ul>
-          <li>Unlimited Roulette Fun</li>
-          <li>Competition and Challenges</li>
-        </ul>
+      {/* Movies */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#555' }}>
+        <Icon>movie</Icon>
+        <span>Movies</span>
       </div>
 
-      {/* Tags */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: '20px' }}>
-        <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Casino</span>
-        <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Slot Machine</span>
-        <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Game</span>
+      {/* Books */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#555' }}>
+        <Icon>menu_book</Icon>
+        <span>Books</span>
       </div>
 
-      {/* Data Safety */}
-      <div style={{ marginTop: '20px' }}>
-        <h3>Data safety</h3>
-        <p>Safety starts with understanding how developers collect and share your data.</p>
+      {/* Kids */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#555' }}>
+        <Icon>star_border</Icon>
+        <span>Kids</span>
       </div>
     </div>
-
+    </div>
     );
   }
 
