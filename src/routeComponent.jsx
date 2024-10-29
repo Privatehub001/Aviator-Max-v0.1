@@ -272,10 +272,66 @@ function RoutesComponent({ id, socket }) {
 
   if (window.innerWidth < 1000 && !isInstalled && !isStandalone && showInstallButton) {
     return (
-      <div className='add-button'>
-        <p>Please add this app to your home screen to continue in mobiles.</p>
-        <button className='add-to-home-screen-btn' onClick={handleInstall}>Add to Home Screen</button>
+      <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f5f5f5', padding: '10px' }}>
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+        <img src="Google_play_icon.png" alt="Google Play Logo" style={{ width: '24px', marginRight: '10px' }} />
       </div>
+
+      {/* App Info */}
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+        <img src="logo512.png" alt="App Icon" style={{ width: '60px', height: '60px', marginRight: '10px' }} />
+        <div>
+          <h2 style={{ margin: 0, fontSize: '18px' }}>Sky Sprint - Live Casino, Slots, Crash</h2>
+          <p style={{ fontSize: '12px', color: '#4caf50' }}>PariMatch</p>
+          <div style={{ display: 'flex', gap: '10px', fontSize: '12px', color: '#666' }}>
+            <span>4.9★ 1.3K reviews</span>
+            <span>500K+ Downloads</span>
+            <span>Rated for 12+</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Install Button */}
+      <button style={{ backgroundColor: '#4caf50', color: '#fff', padding: '10px', borderRadius: '4px', border: 'none', fontSize: '16px', width: '100%', marginBottom: '10px' }}>Install</button>
+
+      {/* Share and Wishlist */}
+      <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '14px', color: '#555' }}>
+        <span>Share</span>
+        <span>Add to wishlist</span>
+      </div>
+
+      {/* Images */}
+      <div style={{ marginTop: '10px' }}>
+        
+      </div>
+
+      {/* About Section */}
+      <div style={{ marginTop: '20px' }}>
+        <h3>About this app</h3>
+        <p>🎉 Welcome to 909U — Your Gaming Paradise! 🎉</p>
+        <p>909U is a unique and exciting gaming app, allowing you to enjoy the fun of the casino without spending one cent.</p>
+        <h4>🌟 Game Features 🌟</h4>
+        <ul>
+          <li>Unlimited Roulette Fun</li>
+          <li>Competition and Challenges</li>
+        </ul>
+      </div>
+
+      {/* Tags */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: '20px' }}>
+        <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Casino</span>
+        <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Slot Machine</span>
+        <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Game</span>
+      </div>
+
+      {/* Data Safety */}
+      <div style={{ marginTop: '20px' }}>
+        <h3>Data safety</h3>
+        <p>Safety starts with understanding how developers collect and share your data.</p>
+      </div>
+    </div>
+
     );
   }
 
