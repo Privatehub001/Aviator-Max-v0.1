@@ -10,6 +10,11 @@ import Dashboard from './dashboard/dashboard';
 import PaymentButton from './dashboard/payment/deposit';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Icon } from '@mui/material'; // Material UI icon component
+import SearchIcon from '@mui/icons-material/Search';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import StarIcon from '@mui/icons-material/Star';
+import InfoIcon from '@mui/icons-material/Info';
 
 function RoutesComponent({ id, socket }) {
   const isSignedIn = useSelector((state) => state.aviatordata.isSignedIn);
@@ -275,51 +280,164 @@ function RoutesComponent({ id, socket }) {
     return (
       <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f5f5f5', paddingBottom: '60px' }}>
       {/* Header */}
-      <div style={{ 
-        position: 'sticky', 
-        top: 0, 
-        zIndex: 10, 
-        backgroundColor: '#ffffff', 
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)', 
-        padding: '10px', 
-        display: 'flex', 
-        alignItems: 'center' 
-      }}>
-        <img src="Google_play_icon.png" alt="Google Play Logo" style={{ width: '24px', marginRight: '10px' }} />
-        <p style={{ margin: 0, fontSize: '16px', color: '#555', fontWeight:'600' }}>Google Play</p>
+      <div style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      height: '30px',
+      padding: '10px 16px',
+      backgroundColor: '#fff',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 10
+    }}>
+        {/* Left Side: Logo and Text */}
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img src="Google_play_icon.png" alt="Google Play Logo" style={{ width: '30px', marginRight: '8px' }} />
+        <p style={{ margin: 0, fontSize: '20px', color: '#333', fontWeight: 'bold' }}>Google Play</p>
       </div>
 
+      {/* Right Side: Icons */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+          <SearchIcon style={{ color: '#333',fontSize: '24px' }} />
+        </a>
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+          <HelpOutlineIcon style={{ color: '#333',fontSize: '24px' }} />
+        </a>
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+          <AccountCircleIcon style={{ color: '#333',fontSize: '40px' }} />
+        </a>
+      </div>
+    </div>
+
       {/* Page Content */}
-      <div style={{ padding: '10px' }}>
+      <div style={{ padding: '20px' }}>
         {/* App Info */}
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-          <img src="app_icon.png" alt="App Icon" style={{ width: '60px', height: '60px', marginRight: '10px' }} />
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', marginTop: '70px' }}>
+          <img src="logo512.png" alt="App Icon" style={{ width: '70px', height: '70px', marginRight: '10px' }} />
           <div>
-            <h2 style={{ margin: 0, fontSize: '18px' }}>909U - Casino, Slots, Crash, Aviator</h2>
-            <p style={{ fontSize: '12px', color: '#4caf50' }}>India's most trusted real money live casino</p>
+            <h2 style={{ margin: '10px', fontSize: '20px',fontWeight: '600' }}>Sky Sprint - Live Casino, Crash, Aviator</h2>
+            <p style={{ margin: '10px',fontSize: '16px', color: '#01875f', fontWeight: '500' }}>PariMatch</p>
             <div style={{ display: 'flex', gap: '10px', fontSize: '12px', color: '#666' }}>
-              <span>4.9★</span>
-              <span>500K+ Downloads</span>
-              <span>Rated for 12+</span>
             </div>
           </div>
         </div>
 
+        <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '10px 0',
+        marginBottom: '10px',
+        marginTop: '10px',
+        marginLeft: '0px',
+      }}
+    >
+      {/* Reviews */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 15px',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '14px',
+            fontWeight: '500',
+            color: '#333',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          4.7
+          <StarIcon style={{ fontSize: '16px', color: '#fbc02d', marginLeft: '4px' }} />
+        </div>
+        <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>1K reviews</div>
+      </div>
+
+      {/* Divider */}
+      <div style={{ width: '1px', height: '24px', backgroundColor: '#e0e0e0' }}></div>
+
+      {/* Downloads */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 15px',
+        }}
+      >
+        <div style={{ fontSize: '14px', fontWeight: '500', color: '#333' }}>100K+</div>
+        <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>Downloads</div>
+      </div>
+
+      {/* Divider */}
+      <div style={{ width: '1px', height: '24px', backgroundColor: '#e0e0e0' }}></div>
+
+      {/* Rating */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '0 15px',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '14px',
+            fontWeight: '500',
+            color: '#333',
+            display: 'inline-block',
+            padding: '2px 4px',
+            border: '0.5px solid #333',
+            borderRadius: '4px',
+          }}
+        >
+          12+
+        </div>
+        <div
+          style={{
+            fontSize: '12px',
+            color: '#666',
+            display: 'flex',
+            alignItems: 'center',
+            marginTop: '5px',
+          }}
+        >
+          Rated for 12+
+          <InfoIcon style={{ fontSize: '12px', color: '#666', marginLeft: '4px' }} />
+        </div>
+      </div>
+    </div>
+
+        
+
         {/* Install Button */}
         <button style={{ 
-          backgroundColor: '#4caf50', 
+          backgroundColor: '#01875f', 
           color: '#fff', 
-          padding: '10px', 
+          padding: '9px', 
           borderRadius: '4px', 
           border: 'none', 
-          fontSize: '16px', 
+          fontSize: '13px', 
+          fontWeight: '500',
           width: '100%', 
-          marginBottom: '10px' 
+          marginBottom: '20px',
+          marginTop: '10px', 
         }}>Install</button>
 
         {/* Share and Wishlist */}
-        <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '14px', color: '#555', marginBottom: '10px' }}>
-          <span>Share</span>
+        <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '14px', color: '#555', marginBottom: '10px', alignItems: 'center' }}>
+        <InfoIcon style={{ fontSize: '12px', color: '#666', marginLeft: '4px' }} />
+        <span>Share</span>
           <span>Add to wishlist</span>
         </div>
 
