@@ -6,15 +6,19 @@ import SignUpForm from './profile/signup';
 import LoginForm from './profile/login';
 import Header from './header';
 import ForgetPassword from './profile/forgetPassword';
+import { FaShareAlt, FaCloud, FaLock, FaTrash, FaBuilding } from 'react-icons/fa';
 import Dashboard from './dashboard/dashboard';
 import PaymentButton from './dashboard/payment/deposit';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Icon } from '@mui/material'; // Material UI icon component
+import { Icon } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import StarIcon from '@mui/icons-material/Star';
+import ShareIcon from '@mui/icons-material/Share';
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import InfoIcon from '@mui/icons-material/Info';
+
 
 function RoutesComponent({ id, socket }) {
   const isSignedIn = useSelector((state) => state.aviatordata.isSignedIn);
@@ -430,47 +434,270 @@ function RoutesComponent({ id, socket }) {
           fontSize: '13px', 
           fontWeight: '500',
           width: '100%', 
-          marginBottom: '20px',
+          marginBottom: '15px',
           marginTop: '10px', 
         }}>Install</button>
 
-        {/* Share and Wishlist */}
-        <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '14px', color: '#555', marginBottom: '10px', alignItems: 'center' }}>
-        <InfoIcon style={{ fontSize: '12px', color: '#666', marginLeft: '4px' }} />
+<div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '10px 0',
+        color: '#0b8043',
+        fontSize: '14px',
+      }}
+    >
+      {/* Share */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+          padding: '0 15px',
+        }}
+      >
+        <ShareIcon style={{ fontSize: '20px', color: '#0b8043', marginRight: '5px' }} />
         <span>Share</span>
-          <span>Add to wishlist</span>
-        </div>
+      </div>
 
-        {/* Images */}
-        <div style={{ marginTop: '10px' }}>
-          <img src="app_screenshot1.jpg" alt="App Screenshot" style={{ width: '100%', borderRadius: '4px' }} />
-          <img src="app_screenshot2.jpg" alt="App Screenshot" style={{ width: '100%', borderRadius: '4px', marginTop: '10px' }} />
-        </div>
+      {/* Add to Wishlist */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+          padding: '0 15px',
+        }}
+      >
+        <BookmarkAddIcon style={{ fontSize: '20px', color: '#0b8043', marginRight: '5px' }} />
+        <span>Add to wishlist</span>
+      </div>
+    </div>
 
-        {/* About Section */}
-        <div style={{ marginTop: '20px' }}>
-          <h3>About this app</h3>
-          <p>🎉 Welcome to 909U — Your Gaming Paradise! 🎉</p>
-          <p>909U is a unique and exciting gaming app, allowing you to enjoy the fun of the casino without spending one cent.</p>
-          <h4>🌟 Game Features 🌟</h4>
-          <ul>
-            <li>Unlimited Roulette Fun</li>
-            <li>Competition and Challenges</li>
+    <div style={{ overflowX: 'auto', display: 'flex', padding: '20px 0' }}>
+      <img
+        src="/Feature1.png"
+        alt="Feature 1"
+        style={{
+          width: '300px',
+          height: '200px',
+          borderRadius: '15px',
+          marginRight: '15px',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+          objectFit: 'cover',
+        }}
+      />
+      <img
+        src="/Feature2.png"
+        alt="Feature 2"
+        style={{
+          width: '300px',
+          height: '200px',
+          borderRadius: '15px',
+          marginRight: '15px',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+          objectFit: 'cover',
+        }}
+      />
+      <img
+        src="/Feature3.png"
+        alt="Feature 3"
+        style={{
+          width: '400px',
+          height: '200px',
+          borderRadius: '15px',
+          marginRight: '15px',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+          objectFit: 'cover',
+        }}
+      />
+      <img
+        src="/Feature4.png"
+        alt="Feature 4"
+        style={{
+          width: '400px',
+          height: '200px',
+          borderRadius: '15px',
+          marginRight: '15px',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+          objectFit: 'cover',
+        }}
+      />
+      <img
+        src="/Feature5.png"
+        alt="Feature 5"
+        style={{
+          width: '400px',
+          height: '200px',
+          borderRadius: '15px',
+          marginRight: '15px',
+          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+          objectFit: 'cover',
+        }}
+      />
+    </div>
+
+    <div style={{ padding: '10px', marginTop: '10px', fontFamily: 'Arial, sans-serif', color: '#333' }}>
+      {/* About this app Section */}
+      <div style={{ paddingBottom: '20px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h2 style={{ fontSize: '18px', fontWeight: 'bold', margin: '0' }}>About this app</h2>
+          <span style={{ fontSize: '30px', cursor: 'pointer', display: 'flex', alignItems: 'top' }}>→</span>
+        </div>
+        <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#666' }}>
+        🎉 Welcome to Sky Sprint — Your Gaming Paradise! 🎉</p>
+        <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#666' }}>
+Sky Sprint is a unique and exciting gaming app, allowing you to enjoy the fun of the casino without spending one cent.
+</p>
+<p style={{ fontSize: '14px', lineHeight: '1.6', color: '#666' }}>
+🌟 Game Features 🌟
+</p>
+<p style={{ fontSize: '14px', lineHeight: '1.6', color: '#666' }}>
+🎰 Unlimited Roulette Fun: Experience the classic roulette game and enjoy winning points!
+🏆 Competition and Challenges: Engage in diverse gaming challenges and compete with players...
+        </p>
+        
+        <div style={{ fontSize: '14px', color: '#666', marginBottom: '10px' }}>
+          <strong>Updated on</strong><br />
+          Oct 25, 2024
+        </div>
+        
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <span style={{
+            display: 'inline-block',
+            padding: '5px 10px',
+            fontSize: '14px',
+            color: '#333',
+            backgroundColor: '#f1f1f1',
+            borderRadius: '30px',
+          }}>
+            #3 Topfree Casino apps
+          </span>
+          <span style={{
+            display: 'inline-block',
+            padding: '5px 10px',
+            fontSize: '14px',
+            color: '#333',
+            backgroundColor: '#f1f1f1',
+            borderRadius: '15px'
+          }}>
+            Aviator
+          </span>
+        </div>
+      </div>
+
+      {/* Data safety Section */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h2 style={{ fontSize: '18px', fontWeight: 'bold', margin: '0' }}>Data safety</h2>
+        <span style={{ fontSize: '30px', cursor: 'pointer' }}>→</span>
+      </div>
+      <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#666', marginTop: '10px' }}>
+        Safety starts with understanding how developers collect and share your data. Data privacy and security practices
+        may vary based on your use, region, and age. The developer provided this information and may update it over time.
+      </p>
+    </div>
+
+    <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#333', padding: '20px' }}>
+      {/* Data Safety Box */}
+      <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '20px', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <FaShareAlt style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <span>No data shared with third parties</span>
+          <a href="#" style={{ marginLeft: '10px', fontSize: '12px', color: '#4285F4', textDecoration: 'none' }}>
+            Learn more
+          </a>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <FaCloud style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <span>This app may collect these data types</span>
+          <span style={{ fontSize: '12px', color: '#666', marginLeft: '5px' }}>Location, Personal info and 7 others</span>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <FaLock style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <span>Data is encrypted in transit</span>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <FaTrash style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <span>You can request that data be deleted</span>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <FaBuilding style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <span>UPI payments verified</span>
+        </div>
+        
+        <a href="#" style={{ color: '#4285F4', textDecoration: 'none', fontWeight: 'bold' }}>See details</a>
+      </div>
+
+      {/* Ratings and Reviews Section */}
+      <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h2 style={{ fontSize: '18px', fontWeight: 'bold' }}>Ratings and reviews</h2>
+        <span style={{ fontSize: '14px', color: '#4285F4', cursor: 'pointer' }}>→</span>
+      </div>
+      <p style={{ fontSize: '12px', color: '#666' }}>Ratings and reviews are verified <span style={{ fontSize: '12px', color: '#999' }}>ⓘ</span></p>
+
+      {/* Device Options */}
+      <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+        <button style={{ padding: '5px 10px', borderRadius: '20px', border: '1px solid #ddd', backgroundColor: '#E6F4EA', color: '#000' }}>
+          📱 Phone
+        </button>
+        <button style={{ padding: '5px 10px', borderRadius: '20px', border: '1px solid #ddd', backgroundColor: '#fff', color: '#000' }}>
+          📺 TV
+        </button>
+        <button style={{ padding: '5px 10px', borderRadius: '20px', border: '1px solid #ddd', backgroundColor: '#fff', color: '#000' }}>
+          📚 Tablet
+        </button>
+      </div>
+    </div>
+
+    <div style={{ padding: '10px', fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#666' }}>
+      {/* Main Footer Links */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', marginBottom: '20px' }}>
+        {/* Column 1 */}
+        <div style={{ minWidth: '150px', marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#333', marginBottom: '10px' }}>Google Play</h3>
+          <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '8px' }}>Play Pass</li>
+            <li style={{ marginBottom: '8px' }}>Play Points</li>
+            <li style={{ marginBottom: '8px' }}>Gift cards</li>
+            <li style={{ marginBottom: '8px' }}>Redeem</li>
+            <li style={{ marginBottom: '8px' }}>Refund policy</li>
           </ul>
         </div>
 
-        {/* Tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: '20px' }}>
-          <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Casino</span>
-          <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Slot Machine</span>
-          <span style={{ backgroundColor: '#e0e0e0', padding: '5px', borderRadius: '4px' }}>Game</span>
+        {/* Column 2 */}
+        <div style={{ minWidth: '150px', marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#333', marginBottom: '10px' }}>Kids & family</h3>
+          <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '8px' }}>Parent Guide</li>
+            <li style={{ marginBottom: '8px' }}>Family sharing</li>
+          </ul>
         </div>
+      </div>
 
-        {/* Data Safety */}
-        <div style={{ marginTop: '20px' }}>
-          <h3>Data safety</h3>
-          <p>Safety starts with understanding how developers collect and share your data.</p>
+      {/* Bottom Links */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'center', borderTop: '1px solid #ddd', paddingTop: '15px' }}>
+        {/* Terms and Links */}
+        <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+          <span>Terms of Service</span>
+          <span>Privacy</span>
+          <span>About Google Play</span>
+          <span>Developers</span>
+          <span>Google Store</span>
         </div>
+        
+        {/* Country and Language */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginTop: '10px' }}>
+          <span>All prices include GST.</span>
+          <span role="img" aria-label="India Flag" style={{ fontSize: '20px' }}>🇮🇳</span>
+          <span>India (English)</span>
+        </div>
+      </div>
+    </div>
       </div>
 
       {/* Fixed Bottom Menu */}
