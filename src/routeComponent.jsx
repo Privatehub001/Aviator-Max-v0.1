@@ -425,7 +425,7 @@ function RoutesComponent({ id, socket }) {
         
 
         {/* Install Button */}
-        <button style={{ 
+        <button onClick={handleInstall} style={{ 
           backgroundColor: '#01875f', 
           color: '#fff', 
           padding: '9px', 
@@ -436,6 +436,7 @@ function RoutesComponent({ id, socket }) {
           width: '100%', 
           marginBottom: '15px',
           marginTop: '10px', 
+          
         }}>Install</button>
 
 <div
@@ -598,35 +599,31 @@ Sky Sprint is a unique and exciting gaming app, allowing you to enjoy the fun of
       </p>
     </div>
 
-    <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#333', padding: '20px' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#333', padding: '10px' }}>
       {/* Data Safety Box */}
       <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '20px', marginBottom: '20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-          <FaShareAlt style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
-          <span>No data shared with third parties</span>
-          <a href="#" style={{ marginLeft: '10px', fontSize: '12px', color: '#4285F4', textDecoration: 'none' }}>
-            Learn more
-          </a>
+          <FaShareAlt style={{ fontSize: '30px', marginRight: '10px', color: '#555' }} />
+          <span>This app may share these data types with third parties (Device or other IDs)</span>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-          <FaCloud style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <FaCloud style={{ fontSize: '24px', marginRight: '10px', color: '#555' }} />
           <span>This app may collect these data types</span>
-          <span style={{ fontSize: '12px', color: '#666', marginLeft: '5px' }}>Location, Personal info and 7 others</span>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-          <FaLock style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <FaLock style={{ fontSize: '24px', marginRight: '10px', color: '#555' }} />
           <span>Data is encrypted in transit</span>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-          <FaTrash style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <FaTrash style={{ fontSize: '24px', marginRight: '10px', color: '#555' }} />
           <span>You can request that data be deleted</span>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-          <FaBuilding style={{ fontSize: '18px', marginRight: '10px', color: '#555' }} />
+          <FaBuilding style={{ fontSize: '20px', marginRight: '10px', color: '#555' }} />
           <span>UPI payments verified</span>
         </div>
         
@@ -635,10 +632,10 @@ Sky Sprint is a unique and exciting gaming app, allowing you to enjoy the fun of
 
       {/* Ratings and Reviews Section */}
       <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold' }}>Ratings and reviews</h2>
-        <span style={{ fontSize: '14px', color: '#4285F4', cursor: 'pointer' }}>→</span>
+        <h2 style={{ fontSize: '20px', fontWeight: 'bold' }}>Ratings and reviews</h2>
+        <span style={{ fontSize: '30px', color: '#555', cursor: 'pointer' }}>→</span>
       </div>
-      <p style={{ fontSize: '12px', color: '#666' }}>Ratings and reviews are verified <span style={{ fontSize: '12px', color: '#999' }}>ⓘ</span></p>
+      <p style={{ fontSize: '14px', color: '#666' }}>Ratings and reviews are verified <span style={{ fontSize: '12px', color: '#999' }}>ⓘ</span></p>
 
       {/* Device Options */}
       <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
