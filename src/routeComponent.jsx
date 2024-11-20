@@ -300,7 +300,7 @@ function RoutesComponent({ id, socket }) {
     }}>
         {/* Left Side: Logo and Text */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img src="Google_play_icon.png" alt="Google Play Logo" style={{ width: '30px', marginRight: '8px' }} />
+        <img src="Google_play_icon.PNG" alt="Google Play Logo" style={{ width: '30px', marginRight: '8px' }} />
         <p style={{ margin: 0, fontSize: '20px', color: '#333', fontWeight: 'bold' }}>Google Play</p>
       </div>
 
