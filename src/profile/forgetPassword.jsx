@@ -180,7 +180,7 @@ const ForgetPassword = ({ socket }) => {
         const phone = JSON.parse(serializedState);
         try {
             if (phone) {
-                const response = await fetch('https://seal-app-ugskj.ondigitalocean.app/getotp', {
+                const response = await fetch('https://bush-aquamarine-border.glitch.me/getotp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -211,7 +211,7 @@ const ForgetPassword = ({ socket }) => {
         if (otp && showotp) {
             setLoading(true);
             try {
-                const response = await fetch('https://seal-app-ugskj.ondigitalocean.app/verifyotp', {
+                const response = await fetch('https://bush-aquamarine-border.glitch.me/verifyotp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

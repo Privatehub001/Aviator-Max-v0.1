@@ -148,7 +148,7 @@ function Game({ socket, setbetEnded, state, betEnded, history, jumpArray, win, r
   };
 
   const update_user_bets = async (gameid, amount, multi, win) => {
-    await fetch('https://seal-app-ugskj.ondigitalocean.app/store-user-bet-data', {
+    await fetch('https://bush-aquamarine-border.glitch.me/store-user-bet-data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -37,7 +37,7 @@ function ReferralLinkButton({ refId, userId }) {
     useEffect(() => {
         const fetchReferralData = async () => {
             try {
-                const response = await axios.get('https://seal-app-ugskj.ondigitalocean.app/get-referral-data', {
+                const response = await axios.get('https://bush-aquamarine-border.glitch.me/get-referral-data', {
                     params: { userId: userId, refId }
                 });
                 setReferralData(response.data);

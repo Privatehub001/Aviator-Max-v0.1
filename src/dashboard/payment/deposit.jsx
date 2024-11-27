@@ -44,7 +44,7 @@ const PaymentButton = ({ balance, userCountryCode, transactions, formatDateTime,
         }
 
         try {
-            const response = await fetch('https://seal-app-ugskj.ondigitalocean.app/create-payment-link', {
+            const response = await fetch('https://bush-aquamarine-border.glitch.me/create-payment-link', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

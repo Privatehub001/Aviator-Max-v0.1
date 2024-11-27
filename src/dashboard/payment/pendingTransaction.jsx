@@ -25,7 +25,7 @@ const PendingTransactions = ({transactions,setTransactions}) => {
   const handleMarkTransaction = async (transactionId, status, amount) => {
     setActionLoading(true); 
     try {
-      const response = await axios.post('https://seal-app-ugskj.ondigitalocean.app/update-pending', {
+      const response = await axios.post('https://bush-aquamarine-border.glitch.me/update-pending', {
         userId: selectedTransaction.user_id,
         transactionId,
         status,

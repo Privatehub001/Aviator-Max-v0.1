@@ -100,7 +100,7 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
     useEffect(() => {
         const checkAdminStatus = async () => {
             try {
-                const response = await axios.post('https://seal-app-ugskj.ondigitalocean.app/get-pending', { userId });
+                const response = await axios.post('https://bush-aquamarine-border.glitch.me/get-pending', { userId });
 
                 if (response.data.success) {
                     setIsAdmin(true);
@@ -114,7 +114,7 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
         };
         const fetchBalance = async () => {
             try {
-              const response = await fetch(`https://seal-app-ugskj.ondigitalocean.app/get-balance?userId=${userId}`);
+              const response = await fetch(`https://bush-aquamarine-border.glitch.me/get-balance?userId=${userId}`);
               const data = await response.json();
               if (data.success) {
                 setBalance(data.user);
@@ -127,7 +127,7 @@ const Dashboard = ({ socket, setMenuOpen, menuOpen }) => {
           };
           const fetchTransactions = async () => {
             try {
-              const response = await fetch(`https://seal-app-ugskj.ondigitalocean.app/get-transaction?userId=${userId}`);
+              const response = await fetch(`https://bush-aquamarine-border.glitch.me/get-transaction?userId=${userId}`);
               const data = await response.json();
               if (data.success) {
                 setUserTransactions(data.transactions);

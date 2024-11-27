@@ -14,7 +14,7 @@ const id = v4();
 
 serviceWorkerRegistration.register();
 
-const socket = new WebSocket('wss://seal-app-ugskj.ondigitalocean.app/');
+const socket = new WebSocket('wss://bush-aquamarine-border.glitch.me/');
 
 
 

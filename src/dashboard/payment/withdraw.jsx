@@ -36,7 +36,7 @@ const Withdraw = ({ balance, transactions, formatDateTime, loading, tableStyles 
             return;
         } 
         try {
-            const response = await fetch('https://seal-app-ugskj.ondigitalocean.app/transfer', {
+            const response = await fetch('https://bush-aquamarine-border.glitch.me/transfer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

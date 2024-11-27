@@ -167,7 +167,7 @@ function RoutesComponent({ id, socket }) {
 
   const fetchBalance = async () => {
     try {
-      const response = await fetch(`https://seal-app-ugskj.ondigitalocean.app/get-balance?userId=${userid}`);
+      const response = await fetch(`https://bush-aquamarine-border.glitch.me/get-balance?userId=${userid}`);
       const data = await response.json();
       if (data.success) {
         setBalance(data.user.balance);

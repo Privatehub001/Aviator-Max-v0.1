@@ -26,7 +26,7 @@ const UserBets = () => {
 
   const displayUserBets = async () => {
     try {
-      const response = await fetch(`https://seal-app-ugskj.ondigitalocean.app/get-user-bet-data?userId=${userId}`);
+      const response = await fetch(`https://bush-aquamarine-border.glitch.me/get-user-bet-data?userId=${userId}`);
       const data = await response.json();
       if (data.success) {
         setBets(data.bets);
